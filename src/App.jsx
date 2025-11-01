@@ -2,6 +2,7 @@ import { useState } from 'react'
 import reactLogo from './assets/react.svg'
 import viteLogo from '/vite.svg'
 import NavBar from "./componentes/navbar.jsx";
+import ActCard from "./componentes/actividadCard.jsx";
 //import './App.css';
 import "./index.css";
 
@@ -11,7 +12,7 @@ function App() {
 
   return (
     <>
-      <NavBar />
+      <NavBar/>
       <h1>Agenda electronica
       </h1>
       <div className="card">
@@ -20,13 +21,25 @@ function App() {
         </button>
       </div>
       
-      <div className="bg-blue-500 text-white p-4 rounded-lg">
-        Hola Tailwind desde StackBlitz 🚀
+      <div className="fixed bg-blue-500 text-white p-4 rounded-0 shadow-lg w-full">
+        Gestione sus actividades desde aqui
       </div>
 
-      <div className="p-6 bg-green-600 text-white rounded-lg shadow-lg">
-      ✅ Tailwind activo en StackBlitz
-    </div>
+      <div className="p-6 bg-gray-200 text-white rounded-md shadow-md max-w-md">
+        <h2 className='text-2xl text-gray-800 font-bold'>Lista de actividades</h2>
+        <ActCard actividad="Montar StackBlitz" fecha="2025/10/28" completado="si"/>
+        <ActCard actividad="Montar GitHub" fecha="2025/10/28" completado="si"/>
+        <ActCard actividad="Montar Vercel" fecha="2025/10/28" completado="si"/>
+        <ActCard actividad="Prueba de funcionamiento" fecha="2025/10/28" completado="si"/>
+        <ActCard actividad="instalación de Tailwind" fecha="2025/10/29" completado="si"/>
+        <ActCard actividad="Prueba de Tailwnd" fecha="2025/10/29" completado="si"/>
+        <ActCard actividad="Creación de componente NavBar" fecha="2025/10/29" completado="si"/>
+        <ActCard actividad="Estilización de NavBar" fecha="2025/10/29" completado="si"/>
+        <ActCard actividad="Creacion de componente ActividadCard" fecha="2025/10/29" completado="si"/>
+        <ActCard actividad="Estiliación de ActiviadCard" fecha="2025/10/29" completado="si"/>
+        <ActCard actividad="Creación de componente Almanaque con ayud de Chat GPT" fecha="2025/10/30" completado="si"/>
+        <ActCard actividad="Estiliación de Almanaque" fecha="2025/10/30" completado="si"/>
+      </div>
 
     </>
   )
