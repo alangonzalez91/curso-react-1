@@ -14,10 +14,8 @@ const NavBar = () => {
 
         {/* Menú (visible en desktop) */}
         <ul className="hidden md:flex space-x-6">
-          <li><a href="#" className="hover:text-gray-300">Almnaque</a></li>
-          <li><a href="#" className="hover:text-gray-300">Completados</a></li>
-          <li><a href="#" className="hover:text-gray-300">Pendientes</a></li>
-          <li><a href="#" className="hover:text-gray-300">Nosotros</a></li>
+          <li><a href="#" class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded-lg">+ Crear actividad</a></li>
+          <li><a href="#" class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded-lg">Nosotros</a></li>
         </ul>
 
         {/* Botón de menú (visible en móvil) */}
@@ -30,9 +28,7 @@ const NavBar = () => {
       {menuOpen && (
         <div className="md:hidden bg-gray-700 px-6 pb-4">
           <ul className="space-y-3">
-            <li><a href="#" className="block hover:text-gray-300">Almanaque</a></li>
-            <li><a href="#" className="block hover:text-gray-300">Completados</a></li>
-            <li><a href="#" className="block hover:text-gray-300">Pendientes</a></li>
+            <li><a href="#" className="block hover:text-gray-300">+ Crear actividad</a></li>
             <li><a href="#" className="block hover:text-gray-300">Nosotros</a></li>
           </ul>
         </div>
