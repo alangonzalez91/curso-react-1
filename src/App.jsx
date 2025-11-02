@@ -23,7 +23,10 @@ function App() {
     { actividad: "Creacion de componente ActividadCard", fecha: "2025/10/29", completado: "si" },
     { actividad: "Estiliación de ActiviadCard", fecha: "2025/10/29", completado: "si" },
     { actividad: "Creación de componente Almanaque con ayud de Chat GPT", fecha: "2025/10/30", completado: "si" },
-    { actividad: "Estiliación de Almanaque", fecha: "2025/10/30", completado: "si" }
+    { actividad: "Estiliación de Almanaque", fecha: "2025/10/30", completado: "si" },
+    { actividad: "Creacion de componente para agregar evento en modal", fecha: "2025/11/02", completado: "" },
+    { actividad: "Pruebas de conexión con API", fecha: "2025/11/02", completado: "" },
+    { actividad: "Creación de componente de indicador de vencimientos", fecha: "2025/11/02", completado: "" }
   ];
 
   return (
