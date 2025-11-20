@@ -70,8 +70,9 @@ function App() {
 
           <div className='flex mt-10'>
               {/* LISTA DE ACTIVIDADES */}
-                  <div className="p-6 bg-gray-200 text-white rounded-md shadow-md max-w-md overflow-scroll h-screen">
-                    <h2 className='text-2xl text-gray-800 font-bold'>Lista de actividades</h2>
+              
+                  <div className="p-6 bg-gray-200 text-white rounded-md shadow-md max-w-md overflow-y-scroll" style={{ height: "85vh" }}>
+                    <h2 className='text-2xl text-gray-800 font-bold'>Lista de actividades {eventos.length}</h2>
                     {eventos.map((evento, index) => (
                       <ActCard
                         key={index}
@@ -84,9 +85,10 @@ function App() {
                   </div>        
 
                 {/* AGENDA */}      
-                  <div className='ml-300 overflow-scroll h-screen'>
+                  <div className='ml-300 overflow-y-scroll' style={{ height: "85vh" }}>
                     <Agenda/>          
                   </div>
+
            </div>
     </>
   )
