@@ -5,6 +5,7 @@ import NavBar from "./componentes/navbar.jsx";
 import ActCard from "./componentes/actividadCard.jsx";
 import Agenda from "./componentes/calendarioMensual.jsx";
 
+import { useObtenerDatosAgenda } from "./custom_hooks/useObtenerEventosAgenda";
 import { useQuery } from "@tanstack/react-query";
 
 //import './App.css';
@@ -15,21 +16,19 @@ import { useQuery } from "@tanstack/react-query";
 function App() {
   const [count, setCount] = useState(0)
 
-  const { data, isLoading, error } = useQuery({
-    queryKey: ["calendario"],
-    queryFn: async () => {
-      const res = await fetch(
-        "https://www.simplesoft.com.ar/api_https_curso/api_curso_obtener_calenario.php"
-      );
+  //const [error, setError] = useState(false);
+  //const [agenda, setAgenda] = useState([]);
+  //const [isLoading, setIsloading] = useState(false);
 
-      if (!res.ok) throw new Error("Error en la API");
-      return res.json();
-    },
-  });
+  const {
+    data: agenda,
+    error,
+    isLoading
+  } = useObtenerDatosAgenda("api_curso_obtener_calenario.php")
 
   //console.log(data);
 
-  const eventos = data;
+  const eventos = agenda;
 
   if (isLoading) return <p>Cargando...</p>;  
 
