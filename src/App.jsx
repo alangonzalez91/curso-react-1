@@ -4,14 +4,37 @@ import viteLogo from '/vite.svg'
 import NavBar from "./componentes/navbar.jsx";
 import ActCard from "./componentes/actividadCard.jsx";
 import Agenda from "./componentes/calendarioMensual.jsx";
+
+import { useQuery } from "@tanstack/react-query";
+
 //import './App.css';
-import "./index.css";
+//Tailwind
+    import "./index.css";
 
 
 function App() {
   const [count, setCount] = useState(0)
 
-  const eventos = [
+  const { data, isLoading, error } = useQuery({
+    queryKey: ["calendario"],
+    queryFn: async () => {
+      const res = await fetch(
+        "https://www.simplesoft.com.ar/api_https_curso/api_curso_obtener_calenario.php"
+      );
+
+      if (!res.ok) throw new Error("Error en la API");
+      return res.json();
+    },
+  });
+
+  //console.log(data);
+
+  const eventos = data;
+
+  if (isLoading) return <p>Cargando...</p>;  
+
+  
+  /*const eventos = [
     { actividad: "Montar StackBlitz", fecha: "2025/10/28", completado: "si" },
     { actividad: "Montar GitHub", fecha: "2025/10/28", completado: "si" },
     { actividad: "Montar Vercel", fecha: "2025/10/28", completado: "si" },
@@ -27,7 +50,8 @@ function App() {
     { actividad: "Creacion de componente para agregar evento en modal", fecha: "2025/11/02", completado: "" },
     { actividad: "Pruebas de conexión con API", fecha: "2025/11/02", completado: "" },
     { actividad: "Creación de componente de indicador de vencimientos", fecha: "2025/11/02", completado: "" }
-  ];
+  ];*/
+
 
   return (
     <>
@@ -40,26 +64,27 @@ function App() {
         </button>
       </div>
     
-          <div className="fixed bg-blue-500 text-white p-4 rounded-0 shadow-lg w-full">
+          <div className="fixed bg-blue-500 text-white p-4 rounded-0 shadow-lg w-full h-11 m-0">
             Gestione sus actividades desde aqui
           </div>
 
-          <div className='flex mt-20'>
+          <div className='flex mt-10'>
               {/* LISTA DE ACTIVIDADES */}
-                  <div className="p-6 bg-gray-200 text-white rounded-md shadow-md max-w-md">
+                  <div className="p-6 bg-gray-200 text-white rounded-md shadow-md max-w-md overflow-scroll h-screen">
                     <h2 className='text-2xl text-gray-800 font-bold'>Lista de actividades</h2>
                     {eventos.map((evento, index) => (
                       <ActCard
                         key={index}
-                        actividad={evento.actividad}
-                        fecha={evento.fecha}
-                        completado={evento.completado}
-                      />
+                        actividad={evento.DESCRIPCION}
+                        fecha={evento.FECHA}
+                        vencimiento={evento.VENCIMIENTO}
+                        estado={evento.ESTADO}
+                       />
                     ))}
                   </div>        
 
                 {/* AGENDA */}      
-                  <div className='ml-300'>
+                  <div className='ml-300 overflow-scroll h-screen'>
                     <Agenda/>          
                   </div>
            </div>
