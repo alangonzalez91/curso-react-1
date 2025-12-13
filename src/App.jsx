@@ -7,7 +7,6 @@ import Agenda from "./componentes/calendarioMensual.jsx";
 import Registro from "./componentes/registro.jsx";
 
 import { useObtenerDatosAgenda } from "./custom_hooks/useObtenerEventosAgenda";
-import { useQuery } from "@tanstack/react-query";
 
 //import './App.css';
 //Tailwind
@@ -25,7 +24,9 @@ function App() {
     data: agenda,
     error,
     isLoading
-  } = useObtenerDatosAgenda("api_curso_obtener_calenario.php")
+  } = useObtenerDatosAgenda("api_curso_obtener_calenario.php");
+
+
 
   //console.log(data);
 
@@ -91,7 +92,7 @@ function App() {
 
                 {/* REGISTRO */}
                 <div className='ml-300 overflow-y-scroll' style={{ height: "85vh" }}>
-                    <Registro/>          
+                    <Registro className="mt-100"/>
                   </div>
            </div>
     </>
