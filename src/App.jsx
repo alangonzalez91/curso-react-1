@@ -92,7 +92,7 @@ function App() {
 
                 {/* REGISTRO */}
                 <div className='ml-300 overflow-y-scroll' style={{ height: "85vh" }}>
-                    <Registro className="mt-100"/>
+                    <Registro/>
                   </div>
            </div>
     </>
