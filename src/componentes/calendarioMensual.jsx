@@ -40,11 +40,11 @@ function CalendarioMensual() {
   };
 
   return (
-    <div style={{ textAlign: "center", margin: "20px" }}>
+    <div style={{ textAlign: "center", margin: "20px", width: "560px" }}>
       <h2 className="flex align-center">
         <button className="pr-3 text-2xl" onClick={mesAnterior}>◀</button>
-        <h2 className="text-2xl">{nombreMes.charAt(0).toUpperCase() + nombreMes.slice(1)} {año}</h2>
-        <button className="pl-3 text-2xl" onClick={mesSiguiente}>▶</button>
+        <h2 className="text-2xl" style={{ width: "480px" }}>{nombreMes.charAt(0).toUpperCase() + nombreMes.slice(1)} {año}</h2>
+        <button className="pl-3 text-2xl" style={{ position: "fixed", left: "860px" }} onClick={mesSiguiente}>▶</button>
       </h2>
 
       <div
