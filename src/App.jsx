@@ -4,6 +4,7 @@ import viteLogo from '/vite.svg'
 import NavBar from "./componentes/navbar.jsx";
 import ActCard from "./componentes/actividadCard.jsx";
 import Agenda from "./componentes/calendarioMensual.jsx";
+import Registro from "./componentes/registro.jsx";
 
 import { useObtenerDatosAgenda } from "./custom_hooks/useObtenerEventosAgenda";
 import { useQuery } from "@tanstack/react-query";
@@ -88,6 +89,10 @@ function App() {
                     <Agenda/>          
                   </div>
 
+                {/* REGISTRO */}
+                <div className='ml-300 overflow-y-scroll' style={{ height: "85vh" }}>
+                    <Registro/>          
+                  </div>
            </div>
     </>
   )
